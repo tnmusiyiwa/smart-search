@@ -1,5 +1,5 @@
 function normalizeSearchTerm(searchTerm) {
-  const commonPrepositions = [
+  const excludeWords = [
     "in",
     "at",
     "on",
@@ -8,14 +8,20 @@ function normalizeSearchTerm(searchTerm) {
     "by",
     "for",
     "with",
-    "from",
+    "from", // Prepositions
+    "and",
+    "or",
+    "but",
+    "nor",
+    "so",
+    "yet", // Conjunctions
   ];
   const searchWords = searchTerm
     .toLowerCase()
     .replace(/[^\w\s]/g, "") // Remove punctuation
     .trim()
     .split(" ")
-    .filter((word) => !commonPrepositions.includes(word));
+    .filter((word) => !excludeWords.includes(word));
 
   return searchWords.join(" ");
 }

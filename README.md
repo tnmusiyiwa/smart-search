@@ -31,7 +31,7 @@
 
 To extract entities from a search term, use the following function:
 
-```javascript
+```bash
 const { extractEntities } = require('./extractEntities');
 
 extractEntities('McDonald\'s in London').then(result => {
