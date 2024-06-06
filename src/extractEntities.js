@@ -16,7 +16,7 @@ async function extractEntities(searchTerm) {
       .map((w) => `'%${w}%'`)
       .join(",")}])
     UNION ALL
-    SELECT *, 'dish_type' as type FROM dish_types WHERE normalize_name(name) ILIKE ANY(ARRAY[${searchWords
+    SELECT *, 'dishType' as type FROM dish_types WHERE normalize_name(name) ILIKE ANY(ARRAY[${searchWords
       .map((w) => `'%${w}%'`)
       .join(",")}])
     UNION ALL
